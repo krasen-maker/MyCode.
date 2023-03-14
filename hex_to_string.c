@@ -3,15 +3,9 @@
                  Программа предназначена для перевода hex в dec.
 
 *******************************************************************************/
+#include <stdio.h>
+#include <math.h>
 
-/*
-         ПЕРЕДЕЛАТЬ. Пупу и Лупу перепутал (си и ++).
-*/
-
-
-#include <iostream>
-#include <cmath>
-using namespace std;
 
 int hex_to_int(char i){
     int num;
@@ -31,7 +25,7 @@ int hex_to_int(char i){
 
 int main()
 {
-    char hex[] = "1A";
+    char hex[] = "1b";
     int out=0;
     for(int i= sizeof(hex); i>0;  i--){
         if (hex[i-1]=='\0')
@@ -43,8 +37,9 @@ int main()
             printf("out=%d\nError!",out);
             return 0;
         }
-        out+=pow(16.0,double(sizeof(hex)-i-1))*n;
+        out+=pow(16.0,(sizeof(hex)-i-1))*n;
     }
     printf("%s в десятичной: %d", hex,out);
     return 0;
 }
+
