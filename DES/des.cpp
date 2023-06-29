@@ -13,10 +13,18 @@ unsigned long k64_to58(string key){
     bitset<64> bit_k;
     
     for(int i = 0; i < n;i=i+1){
-        cout << i << endl;
         bit_k=bit_k | bitset<64>(key[i])<<(56-8*i);
     };
     cout << bit_k << endl;
+    string k58 = bit_k.to_string();
+    cout << k58.length() << endl;
+    for(int i = 1;i<=8;i++){
+        cout << "Step " << i << ": " << 8*i-1 << endl;
+        k58.erase(8*i-i,1);
+    }
+    cout << "Stop!" << endl;
+    cout << k58.length() << endl;
+    
     return 0;
 }
 
@@ -24,5 +32,6 @@ unsigned long k64_to58(string key){
 int main()
 {
     string k = "qwerty";
+    unsigned long key =  k64_to58(k);
     return 0;
 }
